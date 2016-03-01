@@ -45,7 +45,11 @@ group :development do
   gem 'spring'
 end
 
-
 group :test do
-  gem 'cucumber'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'rspec'
 end
+
+gem 'devise'
