@@ -1,0 +1,23 @@
+Test
+
+<h1>Listing Built Withs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Domain</th>
+     <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @o.each do |built_with| %>
+      <tr>
+        <td><%= built_with.domain %></td>
+       <td><%= link_to 'Show', built_with %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

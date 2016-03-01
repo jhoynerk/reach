@@ -1,0 +1,105 @@
+<%= form_for(@built_with) do |f| %>
+  <% if @built_with.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@built_with.errors.count, "error") %> prohibited this built_with from being saved:</h2>
+
+      <ul>
+      <% @built_with.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :domain %><br>
+    <%= f.text_field :domain %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :vertical %><br>
+    <%= f.text_field :vertical %>
+  </div>
+  <div class="field">
+    <%= f.label :telephones %><br>
+    <%= f.text_field :telephones %>
+  </div>
+  <div class="field">
+    <%= f.label :people %><br>
+    <%= f.text_field :people %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br>
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :emails %><br>
+    <%= f.text_field :emails %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br>
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook %><br>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field">
+    <%= f.label :linkedin %><br>
+    <%= f.text_field :linkedin %>
+  </div>
+  <div class="field">
+    <%= f.label :google %><br>
+    <%= f.text_field :google %>
+  </div>
+  <div class="field">
+    <%= f.label :pinterest %><br>
+    <%= f.text_field :pinterest %>
+  </div>
+  <div class="field">
+    <%= f.label :github %><br>
+    <%= f.text_field :github %>
+  </div>
+  <div class="field">
+    <%= f.label :instagram %><br>
+    <%= f.text_field :instagram %>
+  </div>
+  <div class="field">
+    <%= f.label :vk %><br>
+    <%= f.text_field :vk %>
+  </div>
+  <div class="field">
+    <%= f.label :vimeo %><br>
+    <%= f.text_field :vimeo %>
+  </div>
+  <div class="field">
+    <%= f.label :youtube %><br>
+    <%= f.text_field :youtube %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

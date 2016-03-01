@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @potential_client.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @potential_client.email %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @potential_client.last_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @potential_client.title %>
+</p>
+
+<p>
+  <strong>Built with:</strong>
+  <%= @potential_client.built_with_id %>
+</p>
+
+<%= link_to 'Edit', edit_potential_client_path(@potential_client) %> |
+<%= link_to 'Back', potential_clients_path %>

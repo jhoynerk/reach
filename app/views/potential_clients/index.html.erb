@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Potential Clients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Last name</th>
+      <th>Title</th>
+      <th>Built with</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @potential_clients.each do |potential_client| %>
+      <tr>
+        <td><%= potential_client.name %></td>
+        <td><%= potential_client.email %></td>
+        <td><%= potential_client.last_name %></td>
+        <td><%= potential_client.title %></td>
+        <td><%= potential_client.built_with_id %></td>
+        <td><%= link_to 'Show', potential_client %></td>
+        <td><%= link_to 'Edit', edit_potential_client_path(potential_client) %></td>
+        <td><%= link_to 'Destroy', potential_client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Potential client', new_potential_client_path %>
