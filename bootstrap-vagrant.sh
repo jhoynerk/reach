@@ -22,3 +22,4 @@ source /home/vagrant/.profile
 
 cd /vagrant/
 bundle install
+rake db:migrate
