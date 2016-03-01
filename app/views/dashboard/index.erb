@@ -1,0 +1,102 @@
+<div class="card-panel hoverable">
+
+    <a class="btn-floating right btn-large waves-effect waves-light red"><i class="material-icons">+</i></a>
+
+  <div class="right">
+      <%= render :partial => "/potential_clients/form" %> 
+  </div>
+
+    <p>
+      <b>Domain:</b>
+      <%= @built_with.domain %>
+    </p>
+
+    <p class="truncate">
+    <b>Location of Rails App</b>
+    <%= @built_with.location %>
+    </p>
+
+    <p>
+    <b>Company:</b>
+    <%= @built_with.company %>
+    </p>
+
+    <p>
+    <b>Vertical:</b>
+    <%= @built_with.vertical %>
+    </p>
+
+    <p>
+    <b>Telephones:</b>
+    <%= @built_with.telephones %>
+    </p>
+
+   <p>
+    <b>Position:</b>
+    <%= @built_with.position %>
+    </p>
+    <p>
+    <b>Address:</b>
+    <%= @built_with.city %>
+    <%= @built_with.state %>
+    <%= @built_with.zip %>
+    <%= @built_with.country %>
+    </p>
+
+    <p>
+        <%= display_social_link "Twitter", @built_with.twitter %>
+        <%= display_social_link "Facebook", @built_with.facebook %> 
+        <%= display_social_link "LinkedIn", @built_with.linkedin %> 
+        <%= display_social_link "Google", @built_with.google %> 
+        <%= display_social_link "Pinterest", @built_with.pinterest %> 
+        <%= display_social_link "Github", @built_with.github %> 
+        <%= display_social_link "Instagram", @built_with.instagram %> 
+        <%= display_social_link "VK", @built_with.vk %> 
+        <%= display_social_link "Vimeo", @built_with.vimeo %> 
+        <%= display_social_link "Youtube",  @built_with.youtube %> 
+    </p>
+
+    <% if @built_with.people %>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>People</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @built_with.people.split(";").each do |person| %>
+                    <tr>
+                        <td><%= person %></td>
+                    </tr>        
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+
+
+
+
+            <% if @built_with.emails %>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Emails</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @built_with.emails.split(";").each do |email| %>
+                            <tr>
+                                <td>
+                                    <%= email %>
+                                </td>
+                            </tr>        
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+
+
+ 
+
+
+</div>
