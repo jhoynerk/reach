@@ -1,0 +1,12 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .group
+    = f.email_field :email, autofocus: true    
+    span.highlight
+    = f.label :email
+  div.group
+    = f.password_field :password, autofocus: true
+    span.highlight
+    = f.label :Password  
+  = f.submit "Log in", class: "button buttonBlue"
+  = render "devise/shared/links"
+
