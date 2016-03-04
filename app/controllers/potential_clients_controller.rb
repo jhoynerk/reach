@@ -4,7 +4,7 @@ class PotentialClientsController < ApplicationController
   # GET /potential_clients
   # GET /potential_clients.json
   def index
-    @potential_clients = PotentialClient.all
+    @potential_clients = PotentialClient.where(user: current_user)
   end
 
   # GET /potential_clients/1
@@ -69,6 +69,6 @@ class PotentialClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def potential_client_params
-      params.require(:potential_client).permit(:name, :email, :last_name, :title, :built_with_id)
+      params.require(:potential_client).permit(:name, :email, :last_name, :title, :built_with_id, :user_id)
     end
 end
