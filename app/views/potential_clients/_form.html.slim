@@ -1,0 +1,29 @@
+div
+  = form_for(@potential_client) do |f| 
+    - if @potential_client.errors.any?
+      #error_explanation
+        h2 = pluralize(@potential_client.errors.count, "error") 
+          | prohibited this potential_client from being saved:
+          ul
+            = @potential_client.errors.full_messages.each do |message|
+            li = message
+    .group
+      = f.text_field :name
+      span.highlight
+      = f.label :name
+    .group
+      = f.text_field :email
+      span.highlight
+      = f.label :email
+    .group
+      = f.text_field :last_name
+      span.highlight
+      = f.label :last_name
+    .group
+      = f.text_field :title
+      span.highlight
+      = f.label :title
+    = f.hidden_field :built_with_id
+    .actions
+      = f.submit class: "btn"
+
