@@ -4,17 +4,18 @@ nav
       = image_tag '/images/softwarecriollo_lowres.png', id: 'logo-sc'
     ul#nav-mobile.right.hide-on-med-and-down
       li
-        = link_to "Log Out", destroy_user_session_path, method: :delete
+        = link_to 'Inicio', root_path
       li
-        a href="#" 
-          | Potential:
-          span.badge 36
-      li        
+        | Potential: 
+        = current_user.potential_clients.count
+      li
         a.right.hide-on-med-and-down.dropdown-button data-activates="dropdown2" href="#!" 
           | Potencial Clients
           i.mdi-navigation-arrow-drop-down.right
+      li
+        = link_to "Salir", destroy_user_session_path, method: :delete
     ul#dropdown2.dropdown-content
       li
-        a href="#!"  Lista
+        = link_to "Lista", potential_clients_path
       li
         a href="#!"  Estadisticas
