@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228165356) do
+ActiveRecord::Schema.define(version: 20160304185547) do
 
   create_table "built_withs", force: :cascade do |t|
     t.string   "domain"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160228165356) do
     t.integer  "built_with_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
