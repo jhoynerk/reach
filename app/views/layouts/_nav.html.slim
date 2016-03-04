@@ -1,20 +1,17 @@
 nav
   .nav-wrapper
-    a.brand-logo href="http://softwarecriollo.com" target="_blank"
-      = image_tag '/images/softwarecriollo_lowres.png', id: 'logo-sc'
+    = link_to( image_tag('/images/softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: 'brand-logo' ) 
     ul#nav-mobile.right.hide-on-med-and-down
       li
-        = link_to 'Inicio', root_path
-      li
-        | Potential: 
+        | Week: 
         = current_user.potential_clients.count
       li
-        a.right.hide-on-med-and-down.dropdown-button data-activates="dropdown2" href="#!" 
+        a.dropdown-button data-activates="dropdown1" data-beloworigin="true"
           | Potencial Clients
           i.mdi-navigation-arrow-drop-down.right
       li
         = link_to "Salir", destroy_user_session_path, method: :delete
-    ul#dropdown2.dropdown-content
+    ul#dropdown1.dropdown-content
       li
         = link_to "Lista", potential_clients_path
       li
