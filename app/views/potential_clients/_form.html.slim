@@ -7,23 +7,19 @@ div
           ul
             = @potential_client.errors.full_messages.each do |message|
             li = message
-    .group
-      = f.text_field :name
-      span.highlight
+    .field
       = f.label :name
-    .group
-      = f.text_field :email
-      span.highlight
-      = f.label :email
-    .group
-      = f.text_field :last_name
-      span.highlight
+      = f.text_field :name
+    .field
       = f.label :last_name
-    .group
-      = f.text_field :title
-      span.highlight
+      = f.text_field :last_name
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
       = f.label :title
-    = f.hidden_field :built_with_id
+      = f.text_field :title
+      = f.hidden_field :built_with_id
+      = f.hidden_field :user_id, value: current_user.id
     .actions
       = f.submit class: "btn"
-
