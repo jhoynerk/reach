@@ -1,6 +1,6 @@
 nav
   .nav-wrapper
-    = link_to( image_tag('/images/softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: 'brand-logo' ) 
+    = link_to( image_tag('/images/softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: 'brand-logo' )     
     ul#nav-mobile.right.hide-on-med-and-down
       li
         | Week: 
@@ -9,8 +9,23 @@ nav
         a.dropdown-button data-activates="dropdown1" data-beloworigin="true"
           | Potencial Clients
           i.mdi-navigation-arrow-drop-down.right
+      - if current_user.admin?
+        li 
+          a.dropdown-button data-activates="dropdown2" data-beloworigin="true"
+            | CSV
+            i.mdi-navigation-arrow-drop-down.right
       li
         = link_to "Salir", destroy_user_session_path, method: :delete
+          
     ul#dropdown1.dropdown-content
       li
         = link_to "Lista", potential_clients_path
+      - if current_user.admin?
+        li
+          = link_to "Estadisticas", potential_clients_path
+
+    ul#dropdown2.dropdown-content
+      li
+        = link_to "Importar", potential_clients_path
+      li 
+        = link_to "Exportar", potential_clients_path
