@@ -1,6 +1,6 @@
 Rails.application.routes.draw do  
   devise_for :users
-  resources :potential_clients, except: :new
+  resources :potential_clients
   resources :built_withs
 
   root 'dashboard#index'

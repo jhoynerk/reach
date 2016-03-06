@@ -1,4 +1,5 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'panel_login' }) do |f|
+  = devise_error_messages! 
   .group
     = f.email_field :email, autofocus: true, autocomplete: "off"
     span.highlight
