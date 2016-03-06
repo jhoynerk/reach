@@ -3,9 +3,9 @@ div
     - if @potential_client.errors.any?
       #error_explanation
         h2 = pluralize(@potential_client.errors.count, "error") 
-          | prohibited this potential_client from being saved:
-          ul
-            = @potential_client.errors.full_messages.each do |message|
+          | prohibited this potential_client from being saved:          
+        ul
+          - @potential_client.errors.full_messages.each do |message|
             li = message
     .field
       = f.label :name
