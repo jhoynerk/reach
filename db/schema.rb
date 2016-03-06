@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304185547) do
+ActiveRecord::Schema.define(version: 20160306012906) do
 
   create_table "built_withs", force: :cascade do |t|
     t.string   "domain"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160304185547) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
