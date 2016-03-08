@@ -9,10 +9,13 @@ default: &default
   pool: 5
   encoding: unicode
   timeout: 5000
+  username: vagrant
+  password: vagrant
+
 
 development:
   <<: *default
-  database: 
+  database: outreach_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
