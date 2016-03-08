@@ -4,24 +4,32 @@
     = render :partial => "/potential_clients/form"
   p
     b Domain:
+    br
     = @built_with.domain
+
   p.truncate
     b Location of Rails App
+    br
     = @built_with.location
   p
     b Company:
+    br
     = @built_with.company
   p
     b Vertical:
+    br
     = @built_with.vertical
   p
     b Telephones:
+    br
     = @built_with.telephones
   p
     b Position:
+    br
     = @built_with.position
   p
     b Address:
+    br
     = @built_with.city
     = @built_with.state
     = @built_with.zip
