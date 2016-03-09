@@ -13,5 +13,10 @@ class CsvController < ApplicationController
   end
 
   def export
+    @potential_clients = PotentialClient.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @potential_clients.to_csv }
+    end
   end
 end
