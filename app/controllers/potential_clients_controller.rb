@@ -4,7 +4,11 @@ class PotentialClientsController < ApplicationController
   # GET /potential_clients
   # GET /potential_clients.json
   def index
-    @potential_clients = PotentialClient.where(user: current_user)
+    if current_user.admin?
+      @potential_clients = PotentialClient.all
+    else
+      @potential_clients = PotentialClient.where(user: current_user)
+    end
   end
 
   # GET /potential_clients/1
