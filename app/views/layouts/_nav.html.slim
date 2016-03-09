@@ -1,5 +1,6 @@
 nav
   .nav-wrapper
+    = link_to (image_tag '/images/softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: "brand-logo"
     ul#nav-mobile.right.hide-on-med-and-down
       li
         | Week: 
@@ -25,6 +26,6 @@ nav
 
     ul#dropdown2.dropdown-content
       li
-        = link_to "Importar", potential_clients_path
+        = link_to "Importar", root_path
       li 
-        = link_to "Exportar", potential_clients_path
+        = link_to "Exportar", root_path
