@@ -13,5 +13,9 @@ html
 body
   = render :partial => "layouts/nav"
   .container
+    - flash.each do |key, value|
+      div class="#{flash_class(key).to_s}"
+        = value
+      
     = yield
   = render 'layouts/footer'
