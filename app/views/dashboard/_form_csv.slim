@@ -1,0 +1,4 @@
+= form_tag 'csv/import', multipart: true, class: "form_upload", method: :post
+  h5 Importar base de datos.
+  = file_field_tag 'file',  accept: ".csv"
+  = submit_tag 'Importar'
