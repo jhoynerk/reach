@@ -8,7 +8,6 @@ end
 
 
 When /^the user submits valid signin information$/ do
-  BuiltWithImporter.new.import
   fill_in 'user[email]', :with => @user.email
   fill_in 'user[password]', :with => @user.password
   click_button 'Log in'
