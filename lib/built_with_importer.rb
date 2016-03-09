@@ -1,11 +1,19 @@
 require 'csv'
 
-
-
 class BuiltWithImporter
+  attr_accessor :count, :path
+
+  def initialize(path)
+    @path = path
+    @count = 0
+  end
+
+  def read
+    CSV.read(@path)
+  end
 
   def import
-    CSV.foreach("./data/sample_builtwith.csv") do |row|
+    CSV.foreach(@path) do |row|
       b = BuiltWith.new
       b.domain = row[0]
       b.location = row[1]
@@ -30,6 +38,7 @@ class BuiltWithImporter
       b.zip = row[20]
       b.country = row[21]
       b.save
+      @count += 1
     end
   end
 end
