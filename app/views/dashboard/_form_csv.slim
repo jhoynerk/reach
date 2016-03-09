@@ -1,4 +1,15 @@
-= form_tag 'csv/import', multipart: true, class: "form_upload", method: :post
-  h5 Importar base de datos.
-  = file_field_tag 'file',  accept: ".csv"
-  = submit_tag 'Importar'
+.col.s12.m6
+  .card.blue-grey.darken-1
+    .card-content
+      = form_tag 'csv/import', multipart: true, method: :post
+      .file-field.input-field
+        .btn
+          span Load Csv
+          = file_field_tag 'file',  accept: ".csv", required: true
+        .file-path-wrapper
+          input.file-path.validate type="text" /
+        / h5 Importar base de datos.      
+      button.btn.waves-effect.waves-light name="action" type="submit"
+        | Importar
+        i.material-icons.right send
+
