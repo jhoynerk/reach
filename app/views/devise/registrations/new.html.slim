@@ -1,17 +1,17 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'panel_registro'}) do |f|
   = devise_error_messages!
-  .group
+  .input-field
     = f.email_field :email, autofocus: true, autocomplete: "off"
     span.highlight
-    = f.label :email
-  .group
+    = f.label :email, class:"label-new-account"
+  .input-field
     = f.password_field :password, autocomplete: "off"
     span.highlight
-    = f.label :Password
-  .group    
+    = f.label :Password, class:"label-new-account"
+  .input-field    
     = f.password_field :password_confirmation, autocomplete: "off" 
     span.highlight
-    = f.label :password_confirmation 
+    = f.label :password_confirmation, class:"label-new-account" 
   = f.submit "Sign up", class: "button buttonBlue"
   = render "devise/shared/links"
 
