@@ -3,15 +3,15 @@
   .group
     = f.email_field :email, autofocus: true, autocomplete: "off"
     span.highlight
-    = f.label :email
+    = f.label :email, class:"label-new-account"
   .group
     = f.password_field :password, autocomplete: "off"
     span.highlight
-    = f.label :Password
+    = f.label :Password, class:"label-new-account"
   .group    
     = f.password_field :password_confirmation, autocomplete: "off" 
     span.highlight
-    = f.label :password_confirmation 
+    = f.label :password_confirmation, class:"label-new-account" 
   = f.submit "Sign up", class: "button buttonBlue"
   = render "devise/shared/links"
 
