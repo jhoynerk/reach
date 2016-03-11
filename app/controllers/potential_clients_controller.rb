@@ -5,9 +5,10 @@ class PotentialClientsController < ApplicationController
   # GET /potential_clients.json
   def index
     if current_user.admin?
-      @potential_clients = PotentialClient.all
+      @potential_clients = PotentialClient.all.paginate(:page => params[:page], :per_page => 5)
     else
-      @potential_clients = PotentialClient.where(user: current_user)
+      @potential_clients = PotentialClient.where(user: current_user).paginate(:page => params[:page], :per_page => 5)
+
     end
   end
 
