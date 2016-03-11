@@ -73,6 +73,6 @@ class PotentialClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def potential_client_params
-      params.require(:potential_client).permit(:name, :email, :last_name, :title, :built_with_id, :user_id)
+      params.require(:potential_client).permit(:name, :email, :last_name, :title, :built_with_id, :user_id, :useless, :comment)
     end
 end
