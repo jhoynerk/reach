@@ -10,6 +10,12 @@ var setupDashboardPage = function() {
     $('#comment_input').toggle();
     $('#potential_inputs').toggle();
   });
+
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 1
+  });
+
 };
 
 $(document).on('page:load ready', setupDashboardPage);
