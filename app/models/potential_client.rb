@@ -8,4 +8,17 @@ class PotentialClient < ActiveRecord::Base
     where(created_at: d_start..d_end)
   }
   scope :not_useless, -> { where(useless: false) }
+  scope :count_last_week, -> { 
+    where(created_at: (Date.today.beginning_of_week-1.week)..(Date.today.end_of_week-1.week)).count
+  }
+  scope :count_current_week, -> {
+    where(created_at: Date.today.beginning_of_week..Date.today.end_of_week).count
+  }
+  scope :count_last_month, -> {
+    where(created_at: (Date.today.beginning_of_month-1.week)..(Date.today.beginning_of_month-1.week)).count
+  }
+  scope :count_current_month, -> {
+    where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).count
+  }
+  scope :to_user, -> (user_id) { where(user_id: user_id) }
 end

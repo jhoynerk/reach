@@ -8,7 +8,6 @@ class PotentialClientsController < ApplicationController
       @potential_clients = PotentialClient.all.paginate(:page => params[:page], :per_page => 5)
     else
       @potential_clients = PotentialClient.where(user: current_user).paginate(:page => params[:page], :per_page => 5)
-
     end
   end
 

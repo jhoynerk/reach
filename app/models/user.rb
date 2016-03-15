@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :potential_clients
+
+  scope :not_admin, -> { where(admin: [false, nil]) }
 end
