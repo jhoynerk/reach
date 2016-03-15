@@ -1,5 +1,6 @@
 
 Given(/^there is a builtWith import with domain "([^"]*)"$/) do |arg1|
+  DatabaseCleaner.clean_with(:truncation)
   b = BuiltWith.create(domain: arg1)
 end
 
