@@ -1,0 +1,13 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'panel_login' }) do |f|
+  = devise_error_messages! 
+  .input-field
+    = f.email_field :email, autofocus: true, autocomplete: "off"
+    span.highlight
+    = f.label :email, class:"label-new-account"
+  .input-field
+    = f.password_field :password, autofocus: true, autocomplete: "off"
+    span.highlight
+    = f.label :password, class:"label-new-account"
+  = f.submit "Log in", class: "button buttonBlue"
+  = render "devise/shared/links"
+

@@ -1,0 +1,8 @@
+- provide(:title, 'Dashboard')
+- if current_user.admin?
+  = render 'dashboard_admin'
+- else
+  - if @built_with.nil?
+    | "Contact Ivan. There are no more leads here"
+  - else
+    = render 'dashboard_user'
