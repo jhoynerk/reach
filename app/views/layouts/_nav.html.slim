@@ -4,7 +4,7 @@ nav
     ul#nav-mobile.right.hide-on-med-and-down
       li
         | Week: 
-        = current_user.potential_clients.count
+        = PotentialClient.to_user(current_user.id).count_current_week
       li
         a.dropdown-button data-activates="dropdown1" data-beloworigin="true"
           | Potencial Clients
@@ -22,7 +22,7 @@ nav
         = link_to "Lista", potential_clients_path
       - if current_user.admin?
         li
-          = link_to "Estadisticas", potential_clients_path
+          = link_to "Estadisticas", statistics_path
 
     ul#dropdown2.dropdown-content
       li
