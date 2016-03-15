@@ -3,22 +3,30 @@ div
     - if @potential_client.errors.any?
       #error_explanation
         h2 = pluralize(@potential_client.errors.count, "error") 
-          | prohibited this potential_client from being saved:          
+          | prohibited this potential_client from being saved:
         ul
           - @potential_client.errors.full_messages.each do |message|
             li = message
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :last_name
-      = f.text_field :last_name
-    .field
-      = f.label :email
-      = f.text_field :email
-    .field
-      = f.label :title
-      = f.text_field :title
+    #potential_inputs
+      .input-field
+        = f.label :name
+        = f.text_field :name
+      .input-field
+        = f.label :last_name
+        = f.text_field :last_name
+      .input-field
+        = f.label :email
+        = f.text_field :email
+      .input-field
+        = f.label :title
+        = f.text_field :title
+    .input-field
+      = f.check_box :useless, class: 'filled-in'
+      = f.label :useless
+    .input-field#comment_input
+      = f.text_area :comment, class: "materialize-textarea"
+      = f.label :comment
+    .input-field
       = f.hidden_field :built_with_id
       = f.hidden_field :user_id, value: current_user.id
     .actions

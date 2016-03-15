@@ -1,66 +1,68 @@
-.card-panel.hoverable
+.card-panel.hoverable.row
   /! <a class="btn-floating right btn-large waves-effect waves-light red"><i class="material-icons">+</i></a
-  .right
-    = render :partial => "/potential_clients/form"
-  p
-    b Domain:
-    br
-    = @built_with.domain
+  .col.s12.m8
+    p
+      b Domain:
+      br
+      = @built_with.domain
 
-  p.truncate
-    b Location of Rails App
-    br
-    = @built_with.location
-  p
-    b Company:
-    br
-    = @built_with.company
-  p
-    b Vertical:
-    br
-    = @built_with.vertical
-  p
-    b Telephones:
-    br
-    = @built_with.telephones
-  p
-    b Position:
-    br
-    = @built_with.position
-  p
-    b Address:
-    br
-    = @built_with.city
-    = @built_with.state
-    = @built_with.zip
-    = @built_with.country
-  p
-    = display_social_link "Twitter", @built_with.twitter
-    = display_social_link "Facebook", @built_with.facebook
-    = display_social_link "LinkedIn", @built_with.linkedin
-    = display_social_link "Google", @built_with.google
-    = display_social_link "Pinterest", @built_with.pinterest
-    = display_social_link "Github", @built_with.github
-    = display_social_link "Instagram", @built_with.instagram
-    = display_social_link "VK", @built_with.vk
-    = display_social_link "Vimeo", @built_with.vimeo
-    = display_social_link "Youtube",  @built_with.youtube
-  - if @built_with.people
-    table.striped
-      thead
-        tr
-          th People
-      tbody
-      - @built_with.people.split(";").each do |person|
-        tr
-          td = person
-  - if @built_with.emails
-    table.striped
-      thead
-        tr
-          th Emails
-      tbody
-      - @built_with.emails.split(";").each do |email|
-        tr
-          td
-            = email
+    p.truncate
+      b Location of Rails App
+      br
+      = @built_with.location
+    p
+      b Company:
+      br
+      = @built_with.company
+    p
+      b Vertical:
+      br
+      = @built_with.vertical
+    p
+      b Telephones:
+      br
+      = @built_with.telephones
+    p
+      b Position:
+      br
+      = @built_with.position
+    p
+      b Address:
+      br
+      = @built_with.city
+      = @built_with.state
+      = @built_with.zip
+      = @built_with.country
+    p
+      = display_social_link "Twitter", @built_with.twitter
+      = display_social_link "Facebook", @built_with.facebook
+      = display_social_link "LinkedIn", @built_with.linkedin
+      = display_social_link "Google", @built_with.google
+      = display_social_link "Pinterest", @built_with.pinterest
+      = display_social_link "Github", @built_with.github
+      = display_social_link "Instagram", @built_with.instagram
+      = display_social_link "VK", @built_with.vk
+      = display_social_link "Vimeo", @built_with.vimeo
+      = display_social_link "Youtube",  @built_with.youtube
+  .col.m4.s12
+    = render :partial => "/potential_clients/form"
+  .col.s12.m12
+    - if @built_with.people
+      table.striped
+        thead
+          tr
+            th People
+        tbody
+        - @built_with.people.split(";").each do |person|
+          tr
+            td = person
+    - if @built_with.emails
+      table.striped
+        thead
+          tr
+            th Emails
+        tbody
+        - @built_with.emails.split(";").each do |email|
+          tr
+            td
+              = email

@@ -1,0 +1,29 @@
+- @users.each do |u|
+  .col.s12.m8.offset-m2.l6.offset-l3
+    .card-panel.grey.lighten-5.z-depth-1
+      .row
+        .col.s3.offset-s1.center-align
+          i.material-icons.large contacts
+          p.valign = u.email
+        .col.s8
+          .col.s10
+            .collection
+              a.collection-item href="#!" 
+                | Inicio de los tiempos
+                span.badge = u.potential_clients.count
+          .col.s4
+            .collection
+              a.collection-item href="#!" 
+                | Semana anterior
+                span.badge = PotentialClient.to_user(u.id).count_last_week
+              a.collection-item href="#!" 
+                | Mes anterior
+                span.badge = PotentialClient.to_user(u.id).count_last_month
+          .col.s4.offset-s2
+            .collection
+              a.collection-item href="#!" 
+                | Semana en curso
+                span.badge = PotentialClient.to_user(u.id).count_current_week
+              a.collection-item href="#!" 
+                | Mes en curso
+                span.badge = PotentialClient.to_user(u.id).count_current_month

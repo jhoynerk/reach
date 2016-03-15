@@ -4,7 +4,11 @@ class PotentialClientsController < ApplicationController
   # GET /potential_clients
   # GET /potential_clients.json
   def index
-    @potential_clients = PotentialClient.where(user: current_user)
+    if current_user.admin?
+      @potential_clients = PotentialClient.all.paginate(:page => params[:page], :per_page => 5)
+    else
+      @potential_clients = PotentialClient.where(user: current_user).paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   # GET /potential_clients/1
@@ -69,6 +73,6 @@ class PotentialClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def potential_client_params
-      params.require(:potential_client).permit(:name, :email, :last_name, :title, :built_with_id, :user_id)
+      params.require(:potential_client).permit(:name, :email, :last_name, :title, :built_with_id, :user_id, :useless, :comment)
     end
 end
