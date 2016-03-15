@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :potential_clients
   resources :built_withs
+  resources :statistics, only: :index
 
   root 'dashboard#index'
 

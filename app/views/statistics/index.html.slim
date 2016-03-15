@@ -1,0 +1,33 @@
+- @users.each do |u|
+  .col.s12.m8.offset-m2.l6.offset-l3
+    .card-panel.grey.lighten-5.z-depth-1
+      .row.valign-wrapper
+        .col.s3
+          i.material-icons.large perm_identity
+          br
+          strong
+            = u.email
+        .col.s9
+          .col.s12
+            p 
+              strong 
+                | Inicio de los tiempos: 
+              = u.potential_clients.count
+          .col.s6
+            p 
+              strong
+                | Semana anterior: 
+              = PotentialClient.to_user(u.id).count_last_week
+            p 
+              strong
+                | Mes anterior: 
+              = PotentialClient.to_user(u.id).count_last_month
+          .col.s6
+            p
+              strong
+                | Semana en curso: 
+              = PotentialClient.to_user(u.id).count_current_week
+            p
+              strong
+                | Mes en curso: 
+              = PotentialClient.to_user(u.id).count_current_month
