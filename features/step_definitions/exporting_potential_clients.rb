@@ -8,9 +8,15 @@ end
 
 Then(/^you should see the string with information$/) do
   PotentialClient.create(name: 'test', email: 'test@gmail.com', last_name: 'name', title: 'title')
-  potential_clients = PotentialClient.all
-  response = CsvCreator.new.generate(potential_clients, ["id", "name", "email", "last_name", "title", "company"])
-  expect(response).to eq("id,name,email,last_name,title,company\n1,test,test@gmail.com,name,title,\n")
+  steps %Q{
+    Then exported CSV should be
+    """
+    id,name,email,last_name,title,company
+    1,test,test@gmail.com,name,title,
+
+    """
+
+  }
 end
 
 
@@ -31,6 +37,6 @@ end
 
 Then(/^exported CSV should be$/) do |string|
   potential_clients = PotentialClient.all.includes(:built_with)
-  response = CsvCreator.new.generate(potential_clients, ["id", "name", "email", "last_name", "title", "company"])
+  response = CSVExportPotentialClients.export(potential_clients)
   expect(response).to eq(string)
 end

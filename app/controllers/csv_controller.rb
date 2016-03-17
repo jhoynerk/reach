@@ -16,7 +16,7 @@ class CsvController < ApplicationController
     @potential_clients = PotentialClient.between_date(params[:date_start].to_date, params[:date_end].to_date).not_useless
     respond_to do |format|
       format.html
-      format.csv { send_data CsvCreator.new.generate(@potential_clients, ["id", "name", "email", "last_name", "title"]) }
+      format.csv { send_data CSVExportPotentialClients.export(@potential_clients) }
     end
   end
 end
