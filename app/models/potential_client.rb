@@ -21,4 +21,8 @@ class PotentialClient < ActiveRecord::Base
     where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).count
   }
   scope :to_user, -> (user_id) { where(user_id: user_id) }
+
+  def company
+    built_with.company if built_with
+  end
 end
