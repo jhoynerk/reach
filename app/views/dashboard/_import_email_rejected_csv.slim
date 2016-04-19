@@ -1,15 +1,14 @@
 .col.s12.m6
   .card.blue-grey.darken-1
     .card-content
-      = form_tag 'csv/import', multipart: true, method: :post
+      = form_tag 'csv/import_email_rejected', multipart: true, method: :post
         .file-field.input-field
           .btn
-            span Load Csv
+            span Load Bounced Emails Csv
             = file_field_tag 'file_csv',  accept: ".csv", required: true
           .file-path-wrapper
             input.file-path.validate type="text" /
           / h5 Importar base de datos.      
         button.btn.waves-effect.waves-light name="action" type="submit"
-          | Importar
+          | Import Emails
           i.material-icons.right send
-

@@ -1,31 +1,39 @@
-nav
-  .nav-wrapper
-    = link_to (image_tag 'softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: "brand-logo"
-    ul#nav-mobile.right.hide-on-med-and-down
-      li
-        | Week: 
-        = PotentialClient.to_user(current_user.id).count_current_week
-      li
-        a.dropdown-button data-activates="dropdown1" data-beloworigin="true"
-          | Potencial Clients
-          i.mdi-navigation-arrow-drop-down.right
-      - if current_user.admin?
-        li 
-          a.dropdown-button data-activates="dropdown2" data-beloworigin="true"
-            | CSV
-            i.mdi-navigation-arrow-drop-down.right
-      li
-        = link_to "Salir", destroy_user_session_path, method: :delete
-          
-    ul#dropdown1.dropdown-content
-      li
-        = link_to "Lista", potential_clients_path
-      - if current_user.admin?
-        li
-          = link_to "Estadisticas", statistics_path
+div.navbar-fixed
+  nav
+    - @user.each do |u|
+      .nav-wrapper
+        = link_to (image_tag 'softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: "brand-logo"
+        ul#dropdown1.dropdown-content
+          li
+            = link_to "New Potencial Clients", potential_clients_bw_path
+          li
+            = link_to "Lista", potential_clients_path
+        ul#nav-mobile.right.hide-on-med-and-down
+          li
+            | Total: 
+            = u.potential_clients.to_user(current_user.id).count
+          li
+            a.dropdown-button data-activates="dropdown1" data-beloworigin="true"
+              | Potencial Clients
+              i.mdi-navigation-arrow-drop-down.right
+          li
+            = link_to "Salir", destroy_user_session_path, method: :delete
 
-    ul#dropdown2.dropdown-content
-      li
-        = link_to "Importar", root_path
-      li 
-        = link_to "Exportar", root_path
+        ul#slide-out.side-nav
+          li
+            | Total: 
+            = u.potential_clients.to_user(current_user.id).count
+          li.no-padding
+            ul.collapsible.collapsible-accordion
+              li
+                a.collapsible-header
+                  | Potencial Clients
+                  i.mdi-navigation-arrow-drop-down
+                .collapsible-body
+                  ul
+                    li
+                      = link_to "Lista", potential_clients_path
+          li
+            = link_to "Salir", destroy_user_session_path, method: :delete
+        a.button-collapse data-activates="slide-out" href="#" 
+          i.mdi-navigation-menu

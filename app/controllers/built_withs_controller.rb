@@ -25,7 +25,6 @@ class BuiltWithsController < ApplicationController
   # POST /built_withs.json
   def create
     @built_with = BuiltWith.new(built_with_params)
-
     respond_to do |format|
       if @built_with.save
         format.html { redirect_to @built_with, notice: 'Built with was successfully created.' }
