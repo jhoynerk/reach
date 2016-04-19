@@ -5,6 +5,8 @@ div.navbar-fixed
         = link_to (image_tag 'softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: "brand-logo"
         ul#dropdown1.dropdown-content
           li
+            = link_to "New Potencial Clients", potential_clients_bw_path
+          li
             = link_to "Lista", potential_clients_path
         ul#nav-mobile.right.hide-on-med-and-down
           li

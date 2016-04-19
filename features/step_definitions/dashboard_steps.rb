@@ -32,6 +32,11 @@ Given(/^the counter potential customers to "([^"]*)" should be "([^"]*)"$/) do |
   user = User.where(email: arg1).first
   expect(user.potential_clients.count).to eq(arg2.to_i)
 end
+
+Then (/^I should see the link for New potential client$/) do
+  expect(page).to have_link('New Potencial Clients', href: cp_without_builtwiths_path)
+end
+
 Given(/^the user is not logged and write on the url "([^"]*)"$/) do |arg1|
   visit statistics_path
 end

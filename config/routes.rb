@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post 'csv/import', to: 'csv#import', as: :import_csv
   post 'csv/export', to: 'csv#export', as: :export_csv
   post 'csv/import_email_rejected', to: 'csv#import_email_rejected', as: :import_email_rejected_csv
+  get 'potential_clients_bw'  => 'potential_clients#new'
 end
