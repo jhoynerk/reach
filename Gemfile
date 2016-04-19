@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -24,9 +24,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim'
 
+gem "cancan"
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-materialize'
+gem 'toastr_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -55,6 +58,10 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 gem 'devise'
