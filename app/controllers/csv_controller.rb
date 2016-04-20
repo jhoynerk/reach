@@ -3,13 +3,14 @@ class CsvController < ApplicationController
     path = params[:file_csv].tempfile
     csv = BuiltWithImporter.new(path)
     if csv.read
-      csv.import 
+      csv.import
       flash[:success] = "Se importaron #{csv.count}"
     else
-      flash[:success] = "Problemas en la importación de los datos."
+      flash[:error] = "Problemas en la importación de los datos."
     end
     redirect_to :back
   end
+
   def export
     @potential_clients = PotentialClient.between_date(params[:date_start].to_date, params[:date_end].to_date).not_useless
     @csv = CsvCreator.new.generate(@potential_clients, ["id", "name", "email", "last_name", "title"])
@@ -23,10 +24,10 @@ class CsvController < ApplicationController
     path = params[:file_csv].tempfile
     csv = BouncedEmailImporter.new(path)
     if csv.read
-      csv.import 
+      csv.import
       flash[:success] = "Se importaron #{csv.count}"
     else
-      flash[:success] = "Problemas en la importación de los datos."
+      flash[:error] = "Problemas en la importación de los datos."
     end
     redirect_to :back
   end
