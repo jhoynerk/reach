@@ -22,20 +22,20 @@ container-statistics
               .collection
                 a.collection-item href="#!" 
                   | Semana anterior
-                  span.badge.rg  = u.potential_clients.to_user(u.id).count_last_week
+                  span.badge.rg  = u.potential_clients.count_last_week
                 a.collection-item href="#!" 
                   | Mes anterior
-                  span.badge.rg = u.potential_clients.to_user(u.id).count_last_month
+                  span.badge.rg = u.potential_clients.count_last_month
             .col.s4.offset-s2
               .collection
                 a.collection-item href="#!" 
                   | Semana en curso
-                  span.badge.rg = u.potential_clients.to_user(u.id).count_current_week
+                  span.badge.rg = u.potential_clients.count_current_week
                 a.collection-item href="#!" 
                   | Mes en curso
-                  span.badge.rg = u.potential_clients.to_user(u.id).count_current_month
+                  span.badge.rg = u.potential_clients.count_current_month
             .col.s10
               .collection
                 a.collection-item href="#!" 
                   | Bounced Emails
-                  span.badge.rg = u.potential_clients.to_user(u.id).count_emails_bounced
+                  span.badge.rg = u.potential_clients.count_emails_bounced
