@@ -10,7 +10,6 @@ class CsvController < ApplicationController
     end
     redirect_to :back
   end
-
   def export
     @potential_clients = PotentialClient.between_date(params[:date_start].to_date, params[:date_end].to_date).not_useless
     @csv = CsvCreator.new.generate(@potential_clients, ["id", "name", "email", "last_name", "title"])
