@@ -1,4 +1,5 @@
 class PotentialClient < ActiveRecord::Base
+  attr_accessor :firstname
   belongs_to :built_with
   belongs_to :user
   validates :last_name, :name,  presence: true, length: { maximum: 50 }, unless: :useless?
@@ -25,6 +26,9 @@ class PotentialClient < ActiveRecord::Base
   end
   scope :to_user, -> (user_id) { where(user_id: user_id) } 
 
+  def self.firstname(name)
+    name.to_s.split(' ').first
+  end
   def self.count_emails_bounced
     PotentialClient.email_bounced.count
   end

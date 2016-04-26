@@ -5,9 +5,10 @@ class CsvCreator
       data.select(select).each do |product|
         values = Array.new  
         values << product.id
-        values << product.name.to_s.split(' ')[0]
+        values << PotentialClient.firstname(product.name)
         values << product.email     
         values << product.last_name
+        values << product.title
         csv << values
       end
     end
