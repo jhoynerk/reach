@@ -1,4 +1,5 @@
 class CsvController < ApplicationController
+  before_action :authenticate_user!
   def import
     path = params[:file_csv].tempfile
     csv = BuiltWithImporter.new(path)
