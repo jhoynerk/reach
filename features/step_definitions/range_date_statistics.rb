@@ -2,7 +2,7 @@ Then(/^I go to the page partial statistics$/) do
   visit statistics_path
 end
 Then(/^You should see button "([^"]*)"$/) do |arg1|	 
-    expect(page).to have_button(arg1)
+  expect(page).to have_button(arg1)
 end
 When (/^You choose the date start "([^"]*)" and date end "([^"]*)"$/) do |arg1, arg2|
   fill_in 'date_start', :with => arg1.to_date
