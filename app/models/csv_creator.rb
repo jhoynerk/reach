@@ -1,14 +1,14 @@
 class CsvCreator
-  def generate(data ,select ,options = {})
-    CSV.generate(options) do |csv|
+  def generate(data ,select)
+    CSV.generate() do |csv|
       csv <<  select
-      data.select(select).each do |product|
+      data.select(select).each do |attribute|
         values = Array.new  
-        values << product.id
-        values << PotentialClient.firstname(product.name)
-        values << product.email     
-        values << product.last_name
-        values << product.title
+        values << attribute.id
+        values << attribute.first_name
+        values << attribute.email     
+        values << attribute.last_name
+        values << attribute.title
         csv << values
       end
     end
