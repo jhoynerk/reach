@@ -4,12 +4,12 @@ class CsvController < ApplicationController
     path = params[:file_csv].tempfile
     csv = BuiltWithImporter.new(path)
     if csv.read
-      csv.import 
-      flash[:success] = "Se importaron #{csv.count}"
+      csv.import
+      message = "Se importaron #{csv.count}"
     else
-      flash[:success] = "Problemas en la importación de los datos."
+      message = "Problemas en la importación de los datos."
     end
-    redirect_to :back
+    redirect_to :back, notice: message
   end
 
   def export
