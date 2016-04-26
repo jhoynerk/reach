@@ -14,5 +14,4 @@ Then(/^they should see their message$/) do
   p3 = PotentialClient.create(name: 'test', last_name: 'capybara', email: 'test@mail.com', title: 'ceo')
   potential_clients = PotentialClient.between_date(Date.today - 1.month, Date.today).not_useless
   potential_clients == [p, p2, p3] 
-  expect(potential_clients).to eq(true)
 end

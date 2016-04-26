@@ -1,5 +1,5 @@
 class StatisticsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @users = User.not_admin
     authorize! :see_dashboard, @users

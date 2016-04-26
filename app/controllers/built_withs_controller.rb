@@ -1,6 +1,6 @@
 class BuiltWithsController < ApplicationController
   before_action :set_built_with, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /built_withs
   # GET /built_withs.json
   def index
