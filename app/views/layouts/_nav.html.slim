@@ -1,6 +1,6 @@
 div.navbar-fixed
-  nav
-    - @user.each do |u|
+  - @user.each do |u|
+    nav
       .nav-wrapper
         = link_to (image_tag 'softwarecriollo_lowres.png', id: 'logo-sc'), root_path, class: "brand-logo"
         ul#dropdown1.dropdown-content
@@ -11,7 +11,7 @@ div.navbar-fixed
         ul#nav-mobile.right.hide-on-med-and-down
           li
             | Total: 
-            = u.potential_clients.to_user(current_user.id).count
+            = u.potential_clients.count
           li
             a.dropdown-button data-activates="dropdown1" data-beloworigin="true"
               | Potencial Clients
@@ -22,7 +22,7 @@ div.navbar-fixed
         ul#slide-out.side-nav
           li
             | Total: 
-            = u.potential_clients.to_user(current_user.id).count
+            = u.potential_clients.count
           li.no-padding
             ul.collapsible.collapsible-accordion
               li
