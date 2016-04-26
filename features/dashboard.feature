@@ -21,8 +21,8 @@ Feature: Working on our Outreach program
 
   Scenario: New Clients Potencial Without BuiltWiths
     When the user submits valid signin information to user "user@example.com" and "password"
-    Then I should see the link for New potential client
     And I fill out the contact information name "Fremberling" last name "Ramos" email "fremberling@gmail.com" titulo "test"
+    And the counter potential customers to "user@example.com" should be "1"
 
   Scenario: validating url statistic
     Given the user is not logged and write on the url "http://192.168.1.110:3000/statistics" 

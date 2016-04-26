@@ -1,6 +1,6 @@
 class PotentialClientsController < ApplicationController
   before_action :set_potential_client, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /potential_clients
   # GET /potential_clients.json
   def index

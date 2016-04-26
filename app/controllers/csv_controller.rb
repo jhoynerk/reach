@@ -1,14 +1,15 @@
 class CsvController < ApplicationController
+  before_action :authenticate_user!
   def import
     path = params[:file_csv].tempfile
     csv = BuiltWithImporter.new(path)
     if csv.read
-      csv.import 
-      flash[:success] = "Se importaron #{csv.count}"
+      csv.import
+      message = "Se importaron #{csv.count}"
     else
-      flash[:success] = "Problemas en la importación de los datos."
+      message = "Problemas en la importación de los datos."
     end
-    redirect_to :back
+    redirect_to :back, notice: message
   end
 
   def export
@@ -21,7 +22,7 @@ class CsvController < ApplicationController
   end
 
   def import_email_rejected
-    path = params[:file_csv].tempfile
+    path = params[:file_csv_emails].tempfile
     csv = BouncedEmailImporter.new(path)
     if csv.read
       csv.import 

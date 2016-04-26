@@ -9,5 +9,5 @@ Feature: Range of Date for Statistics of Potential Clients
     When the user submits valid signin information to admin "admin@example.com" and "password"
     Then I go to the page partial statistics
     Then You should see button "Search"
-    When You choose the date start "" and date end "" 
+    When You choose the date start "Tue, 25 Apr 2016" and date end "Tue, 26 Apr 2016" 
     Then they should see their message
