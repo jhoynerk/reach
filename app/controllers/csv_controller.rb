@@ -22,7 +22,7 @@ class CsvController < ApplicationController
   end
 
   def import_email_rejected
-    path = params[:file_csv].tempfile
+    path = params[:file_csv_emails].tempfile
     csv = BouncedEmailImporter.new(path)
     if csv.read
       csv.import 
