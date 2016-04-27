@@ -34,7 +34,7 @@ Given(/^the counter potential customers to "([^"]*)" should be "([^"]*)"$/) do |
 end
 
 Then (/^I should see the link for New potential client$/) do
-  expect(page).to have_link('New Potencial Clients', href: cp_without_builtwiths_path)
+  expect(page).to have_link('New Potencial Clients', href: potential_clients_bw_path)
 end
 
 Given(/^the user is not logged and write on the url "([^"]*)"$/) do |arg1|
