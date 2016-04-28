@@ -11,6 +11,7 @@ class PotentialClient < ActiveRecord::Base
   }
 
   scope :not_useless, -> { where(useless: false) }
+
   scope :last_week, -> do 
     where(created_at: (Date.today.beginning_of_week-1.week)..(Date.today.end_of_week-1.week))
   end
@@ -23,6 +24,7 @@ class PotentialClient < ActiveRecord::Base
   scope :current_month, -> do
     where(created_at: Date.today.beginning_of_month..Date.today.end_of_month)
   end
+
   scope :to_user, -> (user_id) { where(user_id: user_id) } 
 
   def first_name
@@ -42,5 +44,9 @@ class PotentialClient < ActiveRecord::Base
   end
   def self.count_current_week
     PotentialClient.current_week.count
+  end
+
+  def company
+    built_with.company if built_with
   end
 end
